@@ -7,9 +7,9 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Get HTML Routes
 
@@ -82,20 +82,20 @@ app.post("/api/notes", function (req, res) {
 
 app.delete("/api/notes/:id", (req, res) => {
 
-    const deletedNote = req.params.id;
+    const delNote = req.params.id;
 
     noteArr = noteArr.filter((note) => {
-        return note.id != deletedNote;
+        return note.id != delNote;
     });
 
     console.log(noteArr)
-    const deletedNotes = JSON.stringify(noteArr);
+    const delNotes = JSON.stringify(noteArr);
 
-    fs.writeFileSync("./db/db.json", deletedNotes, "utf8", err => {
+    fs.writeFileSync("./db/db.json", delNotes, "utf8", err => {
         if (err) throw err;
     });
 
-    res.json(deletedNotes);
+    res.json(delNotes);
 
 });
 
