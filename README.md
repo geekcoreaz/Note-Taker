@@ -6,8 +6,8 @@ This application allows users to create and delete notes as needed.
 ---
 
 ## User Story
-AS A user, I want to be able to write and save notes
-I WANT to be able to delete notes I've written before
+AS A user, I want to be able to write and save notes  
+I WANT to be able to delete notes I've written before  
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
 ---
